@@ -1,247 +1,227 @@
-<div id="google-ads-hybrid-container" style="display: block; opacity: 0; visibility: hidden; width: 100%; margin: 15px auto; max-width: 728px; clear: both; transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out; position: relative;">
+<div id="google-ads-hybrid-container" style="display: block; opacity: 0; visibility: hidden; width: 100%; margin: 15px auto; max-width: 728px; clear: both; transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out; position: relative; font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Arial, sans-serif;">
     
-    <div id="ad-toggle-handle" style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: #ffffff; border: 1px solid #dcdcdc; border-bottom: none; border-radius: 4px 4px 0 0; width: 40px; height: 16px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10002; box-shadow: 0 -2px 4px rgba(0,0,0,0.04);">
-        <span id="toggle-arrow" style="font-size: 10px; color: #5f6368; transform: rotate(0deg); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: Arial, sans-serif;">▼</span>
-    </div>
-
-    <div id="ad-policy-header" style="position: absolute; top: 4px; right: 8px; display: flex; align-items: center; gap: 4px; z-index: 10001; font-family: Roboto, Arial, sans-serif; font-size: 11px; color: #7f7f7f; line-height: 1; user-select: none; cursor: pointer;">
+    <div style="text-align: right; font-size: 11px; color: #7f7f7f; margin-bottom: 6px; padding-right: 5px; display: flex; align-items: center; justify-content: flex-end; gap: 6px;">
         <span>Ads by Google</span>
-        <svg id="ad-info-btn" width="13" height="13" viewBox="0 0 24 24" fill="#5f6368" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-        <svg id="ad-close-btn" width="11" height="11" viewBox="0 0 24 24" fill="#5f6368" style="vertical-align: middle;"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span id="ad-info-btn" style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; background: #007bff; color: white; border-radius: 50%; width: 14px; height: 14px; font-size: 10px; font-weight: bold; font-family: Georgia, serif;">i</span>
+        <span id="ad-close-btn" style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; background: #e0e0e0; color: #666; border-radius: 50%; width: 14px; height: 14px; font-size: 10px; font-weight: bold; font-family: Arial, sans-serif;">×</span>
     </div>
 
-    <div id="google-ad-notice" style="display: none; position: absolute; top: 22px; right: 5px; background: #ffffff; border: 1px solid #ccc; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 12px; border-radius: 4px; font-family: 'Roboto', Arial, sans-serif; font-size: 12px; color: #333; z-index: 99999; max-width: 240px; text-align: left;">
-        <strong>Ads by Google</strong>
-        <p style="margin: 6px 0; color: #5f6368; line-height: 1.4;">Based on previous content preferences or platform partner distribution structures.</p>
-        <a href="https://adssettings.google.com" target="_blank" style="color: #1a73e8; text-decoration: none; font-weight: 500;">Manage Settings</a>
+    <div id="google-ad-notice" style="display: none; position: absolute; top: 25px; right: 5px; background: #ffffff; border: 1px solid #ccc; box-shadow: 0 2px 10px rgba(0,0,0,0.15); padding: 10px; border-radius: 4px; font-family: Arial, sans-serif; font-size: 12px; color: #333; z-index: 99999; max-width: 250px; text-align: left;">
+        <strong>About Google Ads</strong>
+        <p style="margin: 5px 0; color: #666; line-height: 1.3;">This ad is based on structural relevance and simulated digital tech placements.</p>
+        <a href="https://adssettings.google.com" target="_blank" style="color: #007bff; text-decoration: none; font-weight: bold;">Ad Settings</a>
     </div>
     
-    <div id="ad-foldable-wrapper" style="
+    <div id="native-dynamic-ad-box" style="
         box-sizing: border-box;
         width: 100%;
-        background: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 4px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        background: #20262e;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         overflow: hidden;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         display: flex;
-        flex-direction: column;
-        max-height: 280px;
-        opacity: 1;
-        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, border-width 0.3s ease;
+        align-items: center;
+        justify-content: space-between;
+        padding: 32px 28px;
+        cursor: pointer;
+        transition: background 0.2s ease;
     ">
-        
-        <div id="ad-main-body" style="display: flex; width: 100%; min-height: 140px; align-items: stretch;">
-            
-            <div id="ad-img-panel" style="width: 45%; min-width: 140px; position: relative; overflow: hidden; background: #fafafa;">
-                <img id="hybrid-slide-img" src="" alt="Auto Ad Inventory Graphic" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.25s ease-in-out;">
-            </div>
-            
-            <div id="ad-text-panel" style="flex: 1; min-width: 0; padding: 24px 24px 16px 24px; display: flex; flex-direction: column; justify-content: center; text-align: left;">
-                <div id="hybrid-slide-title" style="font-size: 24px; font-weight: 400; color: #202124; line-height: 1.25; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: opacity 0.25s ease;"></div>
-                
-                <div style="font-size: 13px; line-height: 1.4; color: #70757a; font-weight: 400;">
-                    <span id="hybrid-slide-desc-prefix">Check if you </span><span id="hybrid-slide-desc-highlight" style="color: #1a73e8; font-weight: 700;"></span><span id="hybrid-slide-desc-suffix"></span>
-                </div>
-            </div>
+        <div id="ad-click-zone" style="display: flex; flex-direction: column; flex: 1; min-width: 0; text-align: left;">
+            <div id="hybrid-slide-title" style="font-weight: 700; font-size: 26px; color: #38bdf8; margin-bottom: 24px; line-height: 1.2; transition: opacity 0.3s ease;"></div>
+            <div id="hybrid-slide-desc" style="font-size: 14px; color: #e2e8f0; line-height: 1.5; transition: opacity 0.3s ease;"></div>
         </div>
 
-        <div id="ad-click-zone" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; border-top: 1px solid #f1f3f4; background: #ffffff; cursor: pointer; user-select: none;">
-            <div id="hybrid-brand-label" style="font-size: 13px; color: #3c4043; font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70%;"></div>
-            
-            <div id="hybrid-action-cta" style="font-size: 14px; color: #1a73e8; font-weight: 500; display: flex; align-items: center; gap: 6px; white-space: nowrap; flex-shrink: 0;">
-                <span id="hybrid-cta-text">Open</span>
-                <span style="font-size: 11px; font-family: monospace; font-weight: bold; transform: scaleY(1.3);">&gt;</span>
+        <div id="hybrid-cta-wrapper" style="margin-left: 20px; flex-shrink: 0;">
+            <div id="hybrid-cta-btn" style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #20262e;
+                background-color: #38bdf8;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                font-size: 18px;
+                font-weight: bold;
+                transition: transform 0.2s ease;
+            ">
+                <span style="margin-left: 2px; margin-top: -1px;">&gt;</span>
             </div>
         </div>
+    </div>
 
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; padding: 0 6px; font-size: 11px; color: #94a3b8;">
+        <div style="display: flex; align-items: center; gap: 4px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#007bff"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#007bff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        </div>
+        <div id="hybrid-brand-footer" style="transition: opacity 0.3s ease;"></div>
     </div>
 </div>
 
 <style>
-    #ad-click-zone:hover #hybrid-action-cta {
-        text-decoration: underline !important;
+    #native-dynamic-ad-box:hover {
+        background: #262e37 !important;
     }
-    /* Smart Fluid Breakpoints Built For Mobile and Tablets Edge-to-Edge Adaptive Scaling */
-    @media screen and (max-width: 580px) {
-        #ad-main-body {
-            flex-direction: column !important;
-        }
-        #ad-img-panel {
-            width: 100% !important;
-            height: 130px !important;
-        }
-        #ad-text-panel {
-            padding: 16px 16px 12px 16px !important;
+    #native-dynamic-ad-box:hover #hybrid-cta-btn {
+        transform: scale(1.05);
+    }
+    @media screen and (max-width: 520px) {
+        #native-dynamic-ad-box {
+            padding: 22px 18px !important;
         }
         #hybrid-slide-title {
-            font-size: 18px !important;
-            margin-bottom: 6px !important;
+            font-size: 20px !important;
+            margin-bottom: 14px !important;
         }
-        #ad-foldable-wrapper {
-            max-height: 450px !important;
+        #hybrid-slide-desc {
+            font-size: 13px !important;
+        }
+        #hybrid-cta-btn {
+            width: 36px !important;
+            height: 36px !important;
+            font-size: 16px !important;
         }
     }
 </style>
 
 <script>
 (function() {
-    // Rotational Matrix holding configuration details for our 10 distinct brands matching standard native specs
     var campaigns = [
         {
-            brand: "MDC Canada", url: "mdccanada.ca", highlight: "qualify to work", suffix: " in Canada",
+            brand: "MDC Canada", url: "https://mdccanada.ca",
             slides: [
-                {title: "Canada Open Work Permit", img: "https://images.unsplash.com/photo-1546816756-328325e01614?auto=format&fit=crop&q=80&w=700"},
-                {title: "Immigrate to Canada Fast Track", img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=700"}
+                {title: "Canada Open Work Permit", desc: "Check if You qualify to work in Canada"},
+                {title: "Immigrate to Canada Fast Track", desc: "Evaluate your eligibility criteria criteria options online instantly."}
             ]
         },
         {
-            brand: "GoDaddy", url: "godaddy.com", highlight: "register domains", suffix: " starting from $0.01/mo",
+            brand: "GoDaddy", url: "https://www.godaddy.com",
             slides: [
-                {title: "Find Your Perfect Domain Name", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=700"},
-                {title: "Build An AI Responsive Website", img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=700"}
+                {title: "Find Your Perfect Domain", desc: "Snatch your .com name before someone else does. Plans start at $0.01/mo."},
+                {title: "AI Website Builder", desc: "Build a modern responsive business layout in minutes with smart automated templates."}
             ]
         },
         {
-            brand: "Hostinger", url: "hostinger.com", highlight: "save up to 75%", suffix: " off premium cloud plans",
+            brand: "Hostinger", url: "https://www.hostinger.com",
             slides: [
-                {title: "Premium Optimized Web Hosting", img: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&q=80&w=700"}
+                {title: "Premium Web Hosting", desc: "Get fast, secure cloud hosting with free domain, SSL & 24/7 technical support."},
+                {title: "Up to 75% Off Cloud Deals", desc: "Launch your personal blog or e-commerce shop instantly with 1-click installer setups."}
             ]
         },
         {
-            brand: "Google Gemini", url: "gemini.google.com", highlight: "supercharge ideas", suffix: " through multimodal AI text systems",
+            brand: "Gemini", url: "https://gemini.google.com",
             slides: [
-                {title: "Meet Gemini Pro Advanced", img: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&q=80&w=700"}
+                {title: "Meet Gemini by Google", desc: "Your direct built-in creative partner to supercharge your ideas, writing, and code metrics."},
+                {title: "Next-Gen Advanced AI", desc: "Process complex datasets and text summaries accurately with multimodal logic engines."}
             ]
         },
         {
-            brand: "OpenAI ChatGPT", url: "chatgpt.com", highlight: "access GPT-4o", suffix: " configurations instantly on desktop sync",
+            brand: "ChatGPT", url: "https://chatgpt.com",
             slides: [
-                {title: "Instant Real-Time Systems Answers", img: "https://images.unsplash.com/photo-1684369175833-30514df68894?auto=format&fit=crop&q=80&w=700"}
+                {title: "ChatGPT Plus System", desc: "Get access to GPT-4o systems for real-time analysis, interactive generation, and vision tools."},
+                {title: "Instant Answers Everywhere", desc: "Draft documents, learn new topics, brainstorm fresh strategies instantly with desktop sync."}
             ]
         },
         {
-            brand: "TradingView", url: "tradingview.com", highlight: "track global trends", suffix: " alongside 50M+ active traders online",
+            brand: "TradingView", url: "https://www.tradingview.com",
             slides: [
-                {title: "Smart Pro Interactive Chart Vectors", img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=700"}
+                {title: "Look First / Then Leap", desc: "Track market shares, real-time crypto trends, and global chart vectors on any device."},
+                {title: "Smart Cloud Screeners", desc: "Join 50M+ active traders with optimized pine-script technical analysis tools built natively."}
             ]
         },
         {
-            brand: "Meta Facebook", url: "facebook.com", highlight: "connect with groups", suffix: " specialized around your native niche interests",
+            brand: "Facebook", url: "https://www.facebook.com",
             slides: [
-                {title: "Grow Small Local Businesses", img: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=700"}
+                {title: "Connect with Friends", desc: "Share what is new, celebrate milestones, and find custom Meta groups around your interests."},
+                {title: "Grow Small Businesses", desc: "Reach your local audiences accurately through advanced responsive Facebook Ad targets."}
             ]
         },
         {
-            brand: "Cadbury Dairy Milk", url: "cadbury.co.uk", highlight: "savor sustainable recipe", suffix: " classic rich chocolate bars to share",
+            brand: "Dairy Milk", url: "https://www.cadbury.co.uk",
             slides: [
-                {title: "A Glass & A Half Full Chocolate", img: "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&q=80&w=700"},
-                {title: "Pure Creamy Cadbury Milk Blocks", img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=700"}
+                {title: "Pure Creamy Cadbury Milk", desc: "The legendary taste of smooth milk chocolate blocks made to share special moments."},
+                {title: "A Glass & A Half Full", desc: "Savor premium classic milk chocolate recipes sourced from sustainable cocoa farms."}
             ]
         },
         {
-            brand: "Coca-Cola", url: "coca-cola.com", highlight: "refresh dinner gatherings", suffix: " with sugar-free selection options",
+            brand: "Coca-Cola", url: "https://www.coca-cola.com",
             slides: [
-                {title: "Discover Real Magic Experiences", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80&w=700"}
+                {title: "Real Magic Experiences", desc: "Grab an ice-cold crisp Coca-Cola bottle to instantly uplift your dinner table gatherings."},
+                {title: "Refreshment Reimagined", desc: "Discover great original flavors and Sugar-Free selections crafted to spark joy."}
             ]
         },
         {
-            brand: "Apple Inc.", url: "apple.com", highlight: "explore pro architecture", suffix: " designs featuring advanced M-series silicon chips",
+            brand: "Apple", url: "https://www.apple.com",
             slides: [
-                {title: "MacBook Pro Liquid Retina Computations", img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=700"}
+                {title: "iPhone Series Innovations", desc: "Titanium frameworks, dynamic camera matrices, and raw Silicon processing speeds."},
+                {title: "MacBook Pro Architectures", desc: "Unprecedented pro battery lifespans combined with advanced liquid retina computing screens."}
             ]
         }
     ];
 
-    var currentCampaign = campaigns[Math.floor(Math.random() * campaigns.length)];
-    var slideIndex = 0;
-    var isFolded = false;
+    var selectedCampaign = campaigns[Math.floor(Math.random() * campaigns.length)];
+    var currentSlideIdx = 0;
 
-    function populateDynamicFields() {
-        var labelEl = document.getElementById('hybrid-brand-label');
-        var highlightEl = document.getElementById('hybrid-slide-desc-highlight');
-        var suffixEl = document.getElementById('hybrid-slide-desc-suffix');
-        
-        if (labelEl) labelEl.textContent = currentCampaign.brand;
-        if (highlightEl) highlightEl.textContent = currentCampaign.highlight;
-        if (suffixEl) suffixEl.textContent = currentCampaign.suffix;
-        
-        rotateSlideContent();
+    function initAdUI() {
+        updateSlideContent();
     }
 
-    function rotateSlideContent() {
-        var imgEl = document.getElementById('hybrid-slide-img');
+    function updateSlideContent() {
         var titleEl = document.getElementById('hybrid-slide-title');
-        if (!imgEl || !titleEl) return;
+        var descEl = document.getElementById('hybrid-slide-desc');
+        var footerEl = document.getElementById('hybrid-brand-footer');
+        
+        if (!titleEl || !descEl || !footerEl) return;
 
-        imgEl.style.opacity = 0;
         titleEl.style.opacity = 0;
+        descEl.style.opacity = 0;
+        footerEl.style.opacity = 0;
 
         setTimeout(function() {
-            var slideData = currentCampaign.slides[slideIndex];
-            imgEl.src = slideData.img;
-            titleEl.textContent = slideData.title;
+            var data = selectedCampaign.slides[currentSlideIdx];
+            titleEl.textContent = data.title;
+            descEl.textContent = data.desc;
+            footerEl.textContent = selectedCampaign.brand;
 
-            imgEl.style.opacity = 1;
             titleEl.style.opacity = 1;
+            descEl.style.opacity = 1;
+            footerEl.style.opacity = 1;
 
-            slideIndex = (slideIndex + 1) % currentCampaign.slides.length;
-        }, 250);
+            currentSlideIdx = (currentSlideIdx + 1) % selectedCampaign.slides.length;
+        }, 300);
     }
 
-    window.addEventListener('DOMContentLoaded', function() {
-        populateDynamicFields();
+    window.addEventListener('load', function() {
+        initAdUI();
 
         setTimeout(function() {
             var container = document.getElementById('google-ads-hybrid-container');
             if (container) {
                 container.style.visibility = 'visible';
                 container.style.opacity = 1;
-
-                setInterval(function() {
-                    if (!isFolded) { rotateSlideContent(); }
-                }, 4000);
+                setInterval(updateSlideContent, 4000);
             }
-        }, 800);
+        }, 1000);
 
-        // Click actions
-        document.getElementById('ad-click-zone').addEventListener('click', function() {
-            window.open("https://" + currentCampaign.url, '_blank');
+        document.getElementById('native-dynamic-ad-box').addEventListener('click', function(e) {
+            window.open(selectedCampaign.url, '_blank');
         });
 
-        // The Smooth Folding Toggle Handler
-        document.getElementById('ad-toggle-handle').addEventListener('click', function(e) {
+        document.getElementById('ad-close-btn').addEventListener('click', function(e) {
             e.stopPropagation();
-            var wrapper = document.getElementById('ad-foldable-wrapper');
-            var arrow = document.getElementById('toggle-arrow');
-            
-            if (!isFolded) {
-                wrapper.style.maxHeight = '0px';
-                wrapper.style.opacity = '0';
-                wrapper.style.borderWidth = '0px';
-                arrow.style.transform = 'rotate(180deg)';
-                isFolded = true;
-            } else {
-                var isMobile = window.innerWidth <= 580;
-                wrapper.style.maxHeight = isMobile ? '450px' : '280px';
-                wrapper.style.opacity = '1';
-                wrapper.style.borderWidth = '1px';
-                arrow.style.transform = 'rotate(0deg)';
-                isFolded = false;
-            }
+            document.getElementById('google-ads-hybrid-container').style.display = 'none';
         });
 
-        // Toggle Standard Google Policy Dialog Options panel
-        document.getElementById('ad-policy-header').addEventListener('click', function(e) {
+        document.getElementById('ad-info-btn').addEventListener('click', function(e) {
             e.stopPropagation();
-            var dialog = document.getElementById('google-ad-notice');
-            dialog.style.display = (dialog.style.display === 'none' || dialog.style.display === '') ? 'block' : 'none';
+            var noticeBox = document.getElementById('google-ad-notice');
+            noticeBox.style.display = (noticeBox.style.display === 'none' || noticeBox.style.display === '') ? 'block' : 'none';
         });
 
         document.addEventListener('click', function() {
-            var dialog = document.getElementById('google-ad-notice');
-            if (dialog) dialog.style.display = 'none';
+            var noticeBox = document.getElementById('google-ad-notice');
+            if(noticeBox) noticeBox.style.display = 'none';
         });
     });
 })();
